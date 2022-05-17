@@ -1,0 +1,28 @@
+Table books {
+  id int [pk]
+  title varchar
+  author_id int [ref: > authors.id]
+  published datetime
+}
+
+Table users {
+  id int [pk]
+  user_id int [not null, unique]
+  name varchar
+  address varchar
+  phone varchar
+  mobile varchar
+}
+
+Table authors {
+  id int [pk]
+  name varchar
+}
+
+Table borrowing {
+  id int [pk]
+  book_id int [ref: > books.id]
+  user_id int [ref: > users.id]
+  date_borrowed datetime
+  date_return datetime
+}
